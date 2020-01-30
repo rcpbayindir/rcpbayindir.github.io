@@ -41,8 +41,8 @@ twitter: mytwitter
 # linkedin: mylinkedin
 # youtube: myyoutube
 # spotify: myspotify
-  github: https://github.com/rcpbayindir
-  gitlab: https://gitlab.com/rcpbayindir
+github: https://github.com/rcpbayindir
+gitlab: https://gitlab.com/rcpbayindir
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
@@ -58,7 +58,6 @@ authors:
         bio: A Man who travels the world eating noodles
         external-image: false
         picture: assets/images/profile.jpg
-        #twitter: johndoe
 #    jamesfoster:
 #        name: James Foster
 #        bio: A Man who develops software with coffee
