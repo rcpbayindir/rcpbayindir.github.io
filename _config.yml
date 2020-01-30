@@ -16,8 +16,8 @@ resume: true
 resume-external: true
 resume-url: https://www.linkedin.com/in/recep-bayindir-03573450/
 
-url: http://recepbayindir.com/
-#url: https://rcpbayindir.github.io/
+# url: http://recepbayindir.com/
+url: https://rcpbayindir.github.io/
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
