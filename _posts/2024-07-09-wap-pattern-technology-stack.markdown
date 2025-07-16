@@ -1,29 +1,40 @@
 ---
 title: "WAP Pattern: Teknoloji Yığını ve Bileşenler"
-date: 2024-07-09
-categories: [data, pipeline, technology]
-tags: [WAP, technology stack, lakehouse, iceberg, nessie, spark, minio, airflow]
+layout: post
+date: 2024-07-09 09:15
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- WAP
+- technology stack
+- lakehouse
+- iceberg
+- nessie
+- spark
+- minio
+- airflow
+star: true
+category: blog
+author: recepbayindir
+description: WAP deseninde kullanılan temel teknolojiler, mimari etkileşimler ve örnek konfigürasyonlar.
 projects: true
 ---
 
-# WAP Pattern: Technology Stack
+## Summary
 
-WAP (Write-Audit-Publish) deseninin uygulanmasında kullanılan temel teknoloji bileşenleri ve mimari yapı bu yazıda özetlenmiştir.
+Bu yazıda, WAP deseninin uygulanmasında kullanılan temel teknoloji bileşenlerini, mimariyi ve örnek konfigürasyonları bulacaksınız.
 
-## 1. Apache Iceberg
-- ACID işlemler, şema evrimi ve zaman yolculuğu desteği sağlar.
+---
 
-## 2. Project Nessie
-- Veri için Git benzeri branch ve versioning imkanı sunar.
+## Temel Bileşenler
 
-## 3. Apache Spark
-- Dağıtık veri işleme ve analitik motoru.
+- Apache Iceberg: ACID işlemler, şema evrimi
+- Project Nessie: Git benzeri branch ve versioning
+- Apache Spark: Dağıtık veri işleme
+- MinIO: S3 uyumlu nesne depolama
+- Apache Airflow: Pipeline orkestrasyonu
 
-## 4. MinIO
-- S3 uyumlu nesne depolama.
-
-## 5. Apache Airflow
-- Pipeline orkestrasyonu ve zamanlama.
+---
 
 ## Mimarideki Bileşenlerin Etkileşimi
 
@@ -39,11 +50,13 @@ graph TD
     H --> B
 ```
 
+---
+
 ## Örnek Konfigürasyonlar
 
 ### Spark ile Iceberg ve Nessie Entegrasyonu
 
-```python
+{% highlight python %}
 spark = SparkSession.builder \
     .appName("WAP Example") \
     .config("spark.sql.catalog.nessie", "org.apache.iceberg.spark.SparkCatalog") \
@@ -52,11 +65,13 @@ spark = SparkSession.builder \
     .config("spark.sql.catalog.nessie.ref", "main") \
     .config("spark.sql.catalog.nessie.warehouse", "s3a://warehouse/iceberg") \
     .getOrCreate()
-```
+{% endhighlight %}
+
+---
 
 ### MinIO ile S3 Uyumlu Depolama
 
-```yaml
+{% highlight yaml %}
 services:
   minio:
     image: minio/minio
@@ -67,7 +82,9 @@ services:
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: minioadmin
     command: server /data --console-address ":9001"
-```
+{% endhighlight %}
+
+---
 
 ## Sonuç
 
