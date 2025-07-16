@@ -3,6 +3,7 @@ title: "Write-Audit-Publish (WAP) Pattern Nedir?"
 date: 2024-07-09
 categories: [data, pipeline, pattern]
 tags: [WAP, data quality, lakehouse, iceberg, nessie, spark]
+projects: true
 ---
 
 # Introduction to the Write-Audit-Publish (WAP) Pattern

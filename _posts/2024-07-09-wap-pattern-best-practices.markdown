@@ -3,6 +3,7 @@ title: "WAP Pattern: En İyi Uygulamalar ve İpuçları"
 date: 2024-07-09
 categories: [data, pipeline, best-practices]
 tags: [WAP, data quality, best practices, lakehouse, iceberg, nessie]
+projects: true
 ---
 
 # WAP Pattern: Best Practices

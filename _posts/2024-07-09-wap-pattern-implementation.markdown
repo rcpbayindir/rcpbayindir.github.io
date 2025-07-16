@@ -3,6 +3,7 @@ title: "WAP (Write-Audit-Publish) Pattern Uygulaması: Spark, Iceberg ve Nessie 
 date: 2024-07-09
 categories: [data, pipeline, implementation]
 tags: [WAP, data quality, lakehouse, iceberg, nessie, spark, python]
+projects: true
 ---
 
 # WAP (Write-Audit-Publish) Pattern Implementation
