@@ -1,32 +1,53 @@
 ---
 title: "WAP Pattern: Airflow ile Pipeline Orkestrasyonu"
-date: 2024-07-09
-categories: [data, pipeline, orchestration]
-tags: [WAP, airflow, orchestration, pipeline, dag]
+layout: post
+date: 2024-07-09 10:00
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- WAP
+- airflow
+- orchestration
+- pipeline
+- dag
+star: true
+category: blog
+author: recepbayindir
+description: WAP (Write-Audit-Publish) deseninin Apache Airflow ile otomasyonu ve pipeline orkestrasyonu için pratik bir rehber.
 projects: true
 ---
 
-# WAP Pattern: Airflow Entegrasyonu
+## Summary
 
-WAP deseninin otomasyonu ve orkestrasyonu için Apache Airflow nasıl entegre edilir?
+Bu yazıda, WAP (Write-Audit-Publish) deseninin otomasyonu ve izlenebilirliği için Apache Airflow ile pipeline orkestrasyonunun nasıl yapılacağını adım adım bulacaksınız. Kod örnekleri ve entegrasyon ipuçlarıyla birlikte.
 
-## 1. Airflow ile WAP Pipeline Akışı
+---
+
+## Airflow ile WAP Pipeline Akışı
+
 - Her fazı (write, audit, publish) ayrı bir task olarak tanımlayın.
 - Branch yönetimi ve veri kalitesi kontrollerini DAG adımlarına ekleyin.
 
-## 2. Örnek Airflow DAG Tanımı
+---
 
-```python
+## Örnek Airflow DAG Tanımı
+
+{% highlight python %}
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime
 
 def write_phase():
-    ...
+    # Burada veri yazma işlemleri yapılır
+    pass
+
 def audit_phase():
-    ...
+    # Burada veri kalitesi kontrolleri yapılır
+    pass
+
 def publish_phase():
-    ...
+    # Burada publish işlemi yapılır
+    pass
 
 default_args = {
     'owner': 'airflow',
@@ -40,12 +61,25 @@ audit = PythonOperator(task_id='audit', python_callable=audit_phase, dag=dag)
 publish = PythonOperator(task_id='publish', python_callable=publish_phase, dag=dag)
 
 write >> audit >> publish
-```
+{% endhighlight %}
 
-## 3. Entegrasyon İpuçları
+---
+
+## Entegrasyon İpuçları
+
 - Her adımda loglama ve hata yönetimi ekleyin.
 - Kalite kontrolleri başarısız olursa publish adımını tetiklemeyin.
+- Gelişmiş izlenebilirlik için Airflow XCom ve loglarını kullanın.
 
-## 4. Sonuç
+---
 
-Airflow ile WAP pipeline'ınızı otomatik, izlenebilir ve sürdürülebilir şekilde yönetebilirsiniz. 
+## Görsel: Pipeline Akışı
+
+![Airflow DAG Akışı](/assets/images/markdown.jpg)
+<figcaption class="caption">Örnek Airflow DAG akışı: Write → Audit → Publish</figcaption>
+
+---
+
+## Sonuç
+
+Airflow ile WAP pipeline'ınızı otomatik, izlenebilir ve sürdürülebilir şekilde yönetebilirsiniz. Kodunuzu modüler ve test edilebilir tutmak, uzun vadede bakım kolaylığı sağlar. 
